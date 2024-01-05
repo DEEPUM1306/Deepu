@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Mark Sheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Student Mark Sheet</h2>
+
+    <table>
+        <tr>
+            <th>Name:</th>
+            <td><input type="text" id="studentName" placeholder="Enter name"></td>
+        </tr>
+        <tr>
+            <th>USN:</th>
+            <td><input type="text" id="USN" placeholder="Enter USN"></td>
+        </tr>
+        <tr>
+            <th>Math:</th>
+            <td><input type="number" id="mathMarks" placeholder="Enter marks"></td>
+        </tr>
+        <tr>
+            <th>English:</th>
+            <td><input type="number" id="englishMarks" placeholder="Enter marks"></td>
+        </tr>
+        <tr>
+            <th>Science:</th>
+            <td><input type="number" id="scienceMarks" placeholder="Enter marks"></td>
+        </tr>
+        <tr>
+            <th>Total Marks:</th>
+            <td id="totalMarks"></td>
+        </tr>
+        <tr>
+            <th>Percentage:</th>
+            <td id="percentage"></td>
+        </tr>
+    </table>
+
+    <button onclick="calculateMarks()">Calculate</button>
+
+    <script>
+        function calculateMarks() {
+            var mathMarks = parseInt(document.getElementById("mathMarks").value);
+            var englishMarks = parseInt(document.getElementById("englishMarks").value);
+            var scienceMarks = parseInt(document.getElementById("scienceMarks").value);
+
+            var totalMarks = mathMarks + englishMarks + scienceMarks;
+            var percentage = (totalMarks / 300) * 100;
+
+            document.getElementById("totalMarks").innerHTML = totalMarks;
+            document.getElementById("percentage").innerHTML = percentage.toFixed(2) + "%";
+        }
+    </script>
+
+</body>
+</html>

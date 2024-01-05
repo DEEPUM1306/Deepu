@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HI-Q HP Laptop Store</title>
+    \<style>
+        li {
+            display: inline-block;
+            padding: 17px;
+        }
+        nav{
+            background-color: bisque;
+        }
+     /* Additional styles for the shopping cart */
+     #cart {
+            float: right;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        /* Style for the "Add to Cart" button */
+        .add-to-cart {
+            background-color: #4caf50;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Style for the "Remove" button */
+        .remove-from-cart {
+            background-color: #f44336;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header> <h1 style="text-align: center; color: cadetblue;">HI-Q HP  Laptop Store </h1></header>
+
+<nav>
+<ul>
+<li> <a href="About.html"> About Us   </a>    </li>
+<li> <a href="Products.html"> Products   </a>    </li>
+<li> <a href="Contact.html"> Contact Us   </a>    </li>
+</ul>
+</nav>
+
+<h2>HP Laptop Product Showcase</h2>
+
+<table border="1">
+  <tr>
+    <th>HP Laptop model</th>
+    <th>Specifications</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>
+      <img src="img1.jpg" alt="HP Laptop Model XYZ1">
+      <h3>HP Pavilion Ryzen 5 Hexa Core 5500U</h3>
+      <p class="price">$999.99</p>
+      <!-- Add to Cart button -->
+      <button class="add-to-cart" onclick="addToCart('product1','999')">Add to Cart</button>
+      <!-- Remove button -->
+      <button class="remove-from-cart" onclick="removeFromCart('product1','999')">Remove</button>
+    </td>
+    <td>
+      <ul>
+        <li>Processor: Intel Core i7-11th Gen</li>
+        <li>Display: 15.6-inch 4K Ultra HD (3840 x 2160)</li>
+        <li>Memory: 16GB DDR4 RAM</li>
+        <li>Storage: 512GB SSD</li>
+        <li>Operating System: Windows 10 Pro</li>
+        <li>Battery Life: Up to 8 hours</li>
+        <li>Graphics: NVIDIA GeForce GTX</li>
+        <li>Wireless: Wi-Fi 6, Bluetooth 5.0</li>
+        <li>Ports: USB-C, Thunderbolt, HDMI, and more</li>
+      </ul>
+      </td>
+      <td>The HP 125-da0032wm 15.7 is a lightweight and ultra-portable laptop perfect for on-the-go users. It offers reliable performance, long battery life, and a sleek design.</td>
+  </tr>
+  <tr>
+    <td>
+      <img src="img2.jpg" alt="HP Laptop Model XYZ2">
+      <h3>HP 15-da0032wm 15.6</h3>
+      <p class="price">$1099.99</p>
+      <!-- Add to Cart button -->
+      <button class="add-to-cart" onclick="addToCart('product2','1099')">Add to Cart</button>
+      <!-- Remove button -->
+      <button class="remove-from-cart" onclick="removeFromCart('product2','1099')">Remove</button>
+  </td>
+  <td>
+      <ul>
+        <li>Processor: Intel Core i7-11th Gen</li>
+        <li>Display: 15.6-inch 4K Ultra HD (3840 x 2160)</li>
+        <li>Memory: 16GB DDR4 RAM</li>
+        <li>Storage: 512GB SSD</li>
+        <li>Operating System: Windows 10 Pro</li>
+        <li>Battery Life: Up to 8 hours</li>
+        <li>Graphics: NVIDIA GeForce GTX</li>
+        <li>Wireless: Wi-Fi 6, Bluetooth 5.0</li>
+        <li>Ports: USB-C, Thunderbolt, HDMI, and more</li>
+      </ul>
+    </td>
+    <td>The HP 125-da0032wm 15.7 is a lightweight and ultra-portable laptop perfect for on-the-go users. It offers reliable performance, long battery life, and a sleek design.</td>
+  </tr>
+  <tr>
+    <td>
+      <img src="img3.jpg" alt="HP Laptop Model XYZ3">
+      <h3>HP 15-da0032wm 15.6</h3>
+      <p class="price">$799.99</p>
+      <!-- Add to Cart button -->
+      <button class="add-to-cart" onclick="addToCart('product3','799')">Add to Cart</button>
+      <!-- Remove button -->
+      <button class="remove-from-cart" onclick="removeFromCart('product3','799')">Remove</button>
+  </td>
+  <td>
+      <ul>
+        <li>Processor: Intel Core i3-10th Gen</li>
+        <li>Display: 13.3-inch Full HD (1920 x 1080)</li>
+        <li>Memory: 4GB DDR4 RAM</li>
+        <li>Storage: 256GB SSD</li>
+        <li>Operating System: Windows 10 Home</li>
+        <li>Battery Life: Up to 12 hours</li>
+        <li>Wireless: Wi-Fi 6, Bluetooth 5.0</li>
+        <li>Ports: USB-C, USB 3.0, HDMI, and more</li>
+      </ul>
+    </td>
+    <td>The HP 125-da0032wm 15.7 is a lightweight and ultra-portable laptop perfect for on-the-go users. It offers reliable performance, long battery life, and a sleek design.</td>
+  </tr>
+</table>
+    <!-- Your existing HTML code -->
+
+    <!-- Shopping cart display -->
+    <div id="cart">
+        <h3>Shopping Cart</h3>
+        <ul id="cart-items"></ul>
+        <p id="totalPrice">0</p>
+    </div>
+
+    <!-- JavaScript for the shopping cart functionality -->
+    <script>
+        // Initialize total amount
+        let totalPrice = 0;
+
+        // Function to add an item to the cart
+        function addToCart(product, price) {
+            var cartItems = document.getElementById('cart-items');
+            var listItem = document.createElement('li');
+            listItem.textContent = 'Product: ' + product + ', Price: $' + price;
+            cartItems.appendChild(listItem);
+
+            // Increment total amount
+            totalPrice += parseFloat(price);
+            updateTotalPrice();
+        }
+
+        // Function to remove an item from the cart
+        function removeFromCart(product, price) {
+            var cartItems = document.getElementById('cart-items');
+            var items = cartItems.getElementsByTagName('li');
+            for (var i = 0; i < items.length; i++) {
+                if (items[i].textContent.includes(product)) {
+                    cartItems.removeChild(items[i]);
+
+                    // Decrement total amount
+                    totalPrice -= parseFloat(price);
+                    updateTotalPrice();
+                    break;
+                }
+            }
+        }
+
+        // Function to update the total price display
+        function updateTotalPrice() {
+            var totalPriceElement = document.getElementById('totalPrice');
+            totalPriceElement.textContent = 'Total: $' + totalPrice.toFixed(2);
+        }
+    </script>
+
+    <!-- Your existing HTML code -->
+
+    <footer>
+        &copy; All rights are reserved for HI-Q HP Laptop Store
+    </footer>
+</body>
+</html>
